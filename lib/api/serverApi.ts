@@ -60,7 +60,9 @@ export const getMe = async (): Promise<User> => {
   return response.data;
 };
 
-export const checkSession = async (): Promise<CheckSessionResponse> => {
+export const checkSession = async (): Promise<
+  AxiosResponse<CheckSessionResponse>
+> => {
   const response: AxiosResponse<CheckSessionResponse> = await api.get(
     "/auth/session",
     {
@@ -70,5 +72,5 @@ export const checkSession = async (): Promise<CheckSessionResponse> => {
     },
   );
 
-  return response.data;
+  return response;
 };
